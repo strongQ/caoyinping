@@ -1,0 +1,28 @@
+---
+layout: default
+title: "关于：About"
+---
+
+## 个人简介：
+
+* 张奇
+* Web菜狗
+* 来自荆门 现居荆门
+
+## 联系方式
+
+<p class="contact">
+ <a href="" title="微博联系我"><img src="" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
+        <a href="" title="知乎联系我"><img src="" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
+ <a href="https://github.com/strongQ" title="Github联系我"><img src="http://www.github.com/favicon.ico" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
+邮箱: ouyanglip@gmail.com
+</p>
+
+### 关于本站：
+
+* 搭建于[Github](https://github.com/strongQ/strongQ.github.io),欢迎Fork
+* 模板及样式来源[Useful Paradigm](http://usefulparadigm.com/)
+* 别人都叫我汉哥或者奇哥。
+
+## 其他流言
+* 未**女朋友**人士；
