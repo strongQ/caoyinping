@@ -7,15 +7,15 @@ title: "关于：About"
 
 * 张奇
 * Web菜狗
-* 来自荆门 现居荆门
+* 来自荆门 现居不详
 
 ## 联系方式
 
 <p class="contact">
- <a href="" title="微博联系我"><img src="" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
-        <a href="" title="知乎联系我"><img src="" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
- <a href="https://github.com/strongQ" title="Github联系我"><img src="http://www.github.com/favicon.ico" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
-邮箱: ouyanglip@gmail.com
+ <a href="" title="qq联系我"><img src="https://img.alicdn.com/imgextra/i2/232721121/TB26Dk3jFXXXXanXXXXXXXXXXXX_!!232721121.jpg" width="24" height="24" style="display:inline-block;vertical-align:middle"></a> : 345876437<br/>
+        <!--<a href="" title="知乎联系我"><img src="" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>-->
+ <a href="https://github.com/strongQ" title="Github联系我"><img src="http://www.github.com/favicon.ico" width="24" height="24" style="display:inline-block;vertical-align:middle"></a>：17097539144 妹子来骚扰我<br/>
+邮箱: zhangqi@zhangqi.win
 </p>
 
 ### 关于本站：
