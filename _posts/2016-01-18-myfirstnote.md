@@ -12,4 +12,5 @@ tag: think
 ![](https://img.alicdn.com/imgextra/i1/232721121/TB2jzRHjVXXXXXqXXXXXXXXXXXX_!!232721121.jpg)
   这个page真的很好用，全盘copy那位大哥的哦，大哥都要求了删掉所有文章，但为了打开页面满眼充斥着高品质文章......
   说多了就是泪啊！
+  至于这个版权费啊，等小弟有钱了给你个十毛八毛的哦哦。
   好了，打开来看看效果。
