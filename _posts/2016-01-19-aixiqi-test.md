@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 办公-睡觉？
-category: 性感
+category: 爱稀奇
 tag: think
 ---
 ### 干累了就倒着，办公家具也能随心所欲
