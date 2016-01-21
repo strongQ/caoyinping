@@ -13,9 +13,9 @@ tag: sql
  {% highlight sql %}Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
  	{% endhighlight %}
 2.得到数据库中所有用户视图
-<pre>
+ {% highlight sql %}
 Select [name] From sysObjects Where xtype=’V’ And [name]<>’syssegments’ And [name]<>’sysconstraints’ Order By [name]
-</pre>
+ 	{% endhighlight %}
 3.获得指定表中所有列
  {% highlight sql %}Select
 c.name As ColumnName,
@@ -70,7 +70,7 @@ syscomments ON syscolumns.cdefault = syscomments.id
 WHERE (sysobjects.xtype = 'U')
  	{% endhighlight %}
 6.获取数据库中表的字段的名称及类型
- {% highlight sql %}select syscolumns.name,systypes.name from syscolumns,systypes where id=object_id( 'POSmanage..PayWays ') and systypes.xusertype=syscolumns.xusertype</pre>
+ {% highlight sql %}select syscolumns.name,systypes.name from syscolumns,systypes where id=object_id( 'POSmanage..PayWays ') and systypes.xusertype=syscolumns.xusertype 	{% endhighlight %}
 7.用SQL查询分析器查询表的字段类型长度和表说明
  {% highlight sql %}SELECT sysobjects.name AS 表名, syscolumns.name AS 列名,
 systypes.name AS 数据类型, syscolumns.length AS 数据长度, CONVERT(char,
