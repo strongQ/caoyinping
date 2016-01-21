@@ -9,23 +9,23 @@ tag: sql
 
 ## SqlServer操作
 1.得到数据库中所有用户表
- {% highlight sql %}</prSelect>Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
+ {% highlight sql %}Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
  	{% endhighlight %}
 2.得到数据库中所有用户视图
 <pre>
 Select [name] From sysObjects Where xtype=’V’ And [name]<>’syssegments’ And [name]<>’sysconstraints’ Order By [name]
 </pre>
 3.获得指定表中所有列
-<pre>Select
+ {% highlight sql %}Select
 c.name As ColumnName,
 t.name As TypeName
 From syscolumns c, systypes t, sysobjects o
 Where c.xtype = t.xusertype
 And c.id = o.id
 And o.name = ‘Book’
-Order By c.colorder</pre>
+Order By c.colorder 	{% endhighlight %}
 4.获得表中所有列的详细信息
-<pre>Select ColOrder = col.colorder, --排序号
+ {% highlight sql %}Select ColOrder = col.colorder, --排序号
 ColumnName = col.name, --列名
 TypeName = type.name,--数据类型名称
 Length = (Case When type.name='nvarchar' Or type.name='nchar' Then col.length/2 Else col.length End), --长度
@@ -41,9 +41,9 @@ Left Join systypes type On col.xtype = type.xusertype
 Inner Join sysobjects obj On col.id = obj.id And (obj.xtype = 'U' Or obj.xtype = 'V') And obj.name &lt;&gt; 'dtproperties'
 Left Join syscomments com On col.cdefault = com.id
 Where obj.name = 'Territories'
-</pre>
+ 	{% endhighlight %}
 5.获取MS SQL库数据字典的经典SQL语句
-<pre>SELECT sysobjects.name AS [table], sysproperties.[value] AS 表说明,
+ {% highlight sql %}SELECT sysobjects.name AS [table], sysproperties.[value] AS 表说明,
 syscolumns.name AS field, properties.[value] AS 字段说明, systypes.name AS type,
 syscolumns.length, ISNULL(COLUMNPROPERTY(syscolumns.id, syscolumns.name,
 'Scale'), 0) AS 小数位数, syscolumns.isnullable AS isnull,
@@ -67,11 +67,11 @@ sysproperties ON sysobjects.id = sysproperties.id AND
 sysproperties.smallid = 0 LEFT OUTER JOIN
 syscomments ON syscolumns.cdefault = syscomments.id
 WHERE (sysobjects.xtype = 'U')
-</pre>
+ 	{% endhighlight %}
 6.获取数据库中表的字段的名称及类型
-<pre>select syscolumns.name,systypes.name from syscolumns,systypes where id=object_id( 'POSmanage..PayWays ') and systypes.xusertype=syscolumns.xusertype</pre>
+ {% highlight sql %}select syscolumns.name,systypes.name from syscolumns,systypes where id=object_id( 'POSmanage..PayWays ') and systypes.xusertype=syscolumns.xusertype</pre>
 7.用SQL查询分析器查询表的字段类型长度和表说明
-<pre>SELECT sysobjects.name AS 表名, syscolumns.name AS 列名,
+ {% highlight sql %}SELECT sysobjects.name AS 表名, syscolumns.name AS 列名,
 systypes.name AS 数据类型, syscolumns.length AS 数据长度, CONVERT(char,
 sysproperties.[value]) AS 注释
 FROM sysproperties RIGHT OUTER JOIN
@@ -84,9 +84,9 @@ WHERE (sysobjects.xtype = 'u' OR
 sysobjects.xtype = 'v') AND (systypes.name &lt;&gt; 'sysname')
 --and CONVERT(char,sysproperties.[value]) &lt;&gt; 'null' --导出注释不为'null'的记录
 --AND (sysobjects.name = 'bbs_bank_log') --逐个关联表名，可以用or连接条件
-ORDER BY 表名</pre>
+ORDER BY 表名 	{% endhighlight %}
 8.SQL单引号的转义
-<pre>create proc TestPro
+ {% highlight sql %}create proc TestPro
 (@conditon varchar(50))
 as
 declare @sql varchar(1000)
@@ -94,9 +94,9 @@ set @sql='select * from test'
 if @conditon!=''
 set @sql=@sql+' where name='''+@conditon+''''--''转义成'
 exec(@sql)
-go</pre>
+go {% endhighlight %}
 9.分页存储过程
-<pre>create PROCEDURE GetPageData
+ {% highlight sql %}create PROCEDURE GetPageData
 (
 @TableName varchar(30),--表名称
 @IDName varchar(20),--表主键名称
@@ -119,4 +119,4 @@ set nocount on
    EXEC(@sql)
 set nocount off
 END
-</pre>
+ 	{% endhighlight %}
