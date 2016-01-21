@@ -2,6 +2,7 @@
 layout: post
 title: SqlServer操作
 category: 数据库
+description: copy来的一些sql操作
 tag: sql
 ---
 最近被一条sql语句直接搞得交不了差...
