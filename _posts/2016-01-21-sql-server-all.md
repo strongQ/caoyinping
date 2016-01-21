@@ -9,8 +9,8 @@ tag: sql
 
 ## SqlServer操作
 1.得到数据库中所有用户表
- <pre></prSelect>Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
- </pre>
+ {% highlight sql %}</prSelect>Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
+ 	{% endhighlight %}
 2.得到数据库中所有用户视图
 <pre>
 Select [name] From sysObjects Where xtype=’V’ And [name]<>’syssegments’ And [name]<>’sysconstraints’ Order By [name]
