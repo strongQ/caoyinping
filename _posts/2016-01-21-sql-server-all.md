@@ -1,3 +1,9 @@
+---
+layout: post
+title: SqlServer操作
+category: 数据库
+tag: sql
+---
 # SqlServer操作
 1.得到数据库中所有用户表
  <pre></prSelect>Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
