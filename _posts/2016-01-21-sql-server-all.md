@@ -4,7 +4,8 @@ title: SqlServer操作
 category: 数据库
 tag: sql
 ---
-# SqlServer操作
+最近被一条sql语句直接搞得交不了差...
+## SqlServer操作
 1.得到数据库中所有用户表
  <pre></prSelect>Select [name] from sysObjects Where xtype=’U’and [name]<>’dtproperties’ Order By [name]
  </pre>
