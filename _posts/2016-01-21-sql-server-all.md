@@ -2,6 +2,7 @@
 layout: post
 title: SqlServer操作
 category: 数据库
+description: copy来的一些sql操作
 tag: sql
 ---
 # SqlServer操作
