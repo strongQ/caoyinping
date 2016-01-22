@@ -35,7 +35,7 @@ tag: ajax
                 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
                 xhr.send('loginId=' + loginId + '&pwd1=' + pwd1 + '&pwd2=' + pwd2);
             };
-{% endhightlight %}
+{% endhighlight %}
 ---------------------------------------------------
 ## Jquery版本
 {% highlight javascript %}
