@@ -50,4 +50,4 @@ var configObj = {
     } 
 $.ajax(configObj);//通过$.ajax函数进行调用
 {% endhighlight %}
-* $.getJSON，这个是进一步的封装，也就是对返回数据类型为Json进行操作。里边就三个参数，需要我们设置，非常简单：url,[data],[callback]*
+*$.getJSON，这个是进一步的封装，也就是对返回数据类型为Json进行操作。里边就三个参数，需要我们设置，非常简单：url,[data],[callback]*
