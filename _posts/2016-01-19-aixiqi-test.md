@@ -4,6 +4,10 @@ title: 办公-睡觉？
 category: 爱稀奇
 tag: think
 ---
+
+我就想躺着工作--饭来张口，已来伸手
+
+
 ### 干累了就倒着，办公家具也能随心所欲
 ![](https://img.alicdn.com/imgextra/i4/232721121/TB2vbRmjVXXXXXLXpXXXXXXXXXX_!!232721121.jpg)
 ![](https://img.alicdn.com/imgextra/i3/232721121/TB2txlKjVXXXXXSXXXXXXXXXXXX_!!232721121.jpg)![](https://img.alicdn.com/imgextra/i1/232721121/TB2mEw.jFXXXXcmXpXXXXXXXXXX_!!232721121.jpg)
