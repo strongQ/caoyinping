@@ -37,7 +37,8 @@ tag: ajax
             };
 {% endhighlight %}
 ---------------------------------------------------
-## Jquery版本
+
+### Jquery版本 ###
 {% highlight javascript %}
 var configObj = {
        method   //数据的提交方式：get和post
