@@ -5,7 +5,7 @@ category: ajax
 tag: ajax
 ---
 
-来终结一下ajax操作。
+来总结一下ajax操作。
 
 ## 基础版本
 {% highlight javascript %}
