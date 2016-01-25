@@ -11,39 +11,37 @@ tags:      [前端,Angularjs]
 
 1.日期格式过滤
 
-{% highlight html %}
-<body>
+
+    <body>
     {{ 1304375948024 | date }}
     <br>
     {{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}
     <br>
     {{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" }}
     <br>        
-</body>
-{% endhighlight %}
+    </body>
+
 
 ### 结果是:
 
-May 3, 2011 
-05/03/2011 @ 6:39AM 
-2011-05-03 06:39:08 
-再来看，前面的数字弄啥类！
+    May 3, 2011 
+    05/03/2011 @ 6:39AM 
+    2011-05-03 06:39:08 
+ 再来看，前面的数字弄啥类！
 
 ### 2.加载json
 
 html页：
 
-{% highlight html %}
-<body>
-  <div ng-controller="LoadDataCtrl">
-     <ul>
+    <body>
+     <div ng-controller="LoadDataCtrl">
+      <ul>
        <li ng-repeat="user in users">
-       {{user.name}}
+            {{user.name}}
        </li>
-     </ul>
-  </div>
-</body>
-{% endhighlight %}
+      </ul>
+     </div>
+    </body>
 
 js中：
 
@@ -65,16 +63,16 @@ myModule.controller('LoadDataCtrl',['$scope','$http',function($scope,$http){
 要放在服务器上运行哦！尼玛读不出来啊...
 
 ### 3.指令用在不同控制器中
-{% highlight html %}
-<body>
-  <div ng-controller="MyCtrl1">
-     <loader howtoload="loadData1()">加载数据中</loader>
-  </div>
-  <div ng-controller="MyCtrl2">
-      <loader howtoload="loadData2()">加载数据中</loader>
-  </div>        
-</body>
-{% endhighlight %}
+
+    <body>
+      <div ng-controller="MyCtrl1">
+        <loader howtoload="loadData1()">加载数据中</loader>
+      </div>
+      <div ng-controller="MyCtrl2">
+       <loader howtoload="loadData2()">加载数据中</loader>
+      </div>        
+    </body>
+
 js中
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
@@ -106,17 +104,14 @@ myModule.directive("loader",function(){
 ### 4.独立Scope
 
 html页：
-{% highlight html %}
-div ng-controller="MyCtrl">
+
+    <div ng-controller="MyCtrl">
       Ctrl:
-      <br>
-      <input type="text" ng-model="ctrlFlavor"></input>
-      <br>
+     <input type="text" ng-model="ctrlFlavor"></input>
       Directive:
-      <br>
       <drink flavor="ctrlFlavor"></drink>
-  </div>
-{% endhighlight %}
+    </div>
+
 js中：
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
@@ -134,14 +129,15 @@ myModule.directive("drink",function(){
            // scope.flavor=attrs.flavor;        
     }
 })
-抱歉我自己看不懂啦@
 {% endhighlight %}
+抱歉我自己看不懂啦@
 
 ### 5.动感超人指令
 
-{% highlight html %}
-<superman strength speed>动感超人---力量+敏捷</superman>
-{% endhighlight %}
+
+    <superman strength speed>动感超人---力量+敏捷  
+	</superman>
+
 js中：
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
@@ -197,34 +193,38 @@ myModule.directive("light",function(){
 
 ### 6.表单验证
 
-{% highlight html %}
-<body>
-  <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
-  <input name="userName" type="text" ng-model="user.userName" required></input>
-  <input name="password" type="password" ng-model="user.password" required></input>
-  <input type="submit" ng-disabled="myForm.$invalid"></input>         
+    <body>
+     <form name="myForm" ng-submit="save()" 
+	           ng- controller="TestFormModule">
+         <input name="userName" type="text" 
+		       ng-model="user.userName" required></input>
+         <input name="password" type="password" 
+		       ng-model="user.password" required></input>
+         <input type="submit" ng-disabled="myForm.$invalid">
+		 </input>         
 </body>
-{% endhighlight %}
 
 ### 7.表单数据双向绑定
-
 html页：
-{% highlight html %}
-<body>
-   <div class="panel panel-primary">
-    <div class="panel-heading">
-      <div class="panel-title">双向数据绑定</div>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-12">
-          <form action="" role="form" class="form-horizontal" ng-controller="UserInfoCtrl">
+
+    <body>
+       <div class="panel panel-primary">
+        <div class="panel-heading">
+         <div class="panel-title">双向数据绑定</div>
+         </div>
+         <div class="panel-body">
+         <div class="row">
+         <div class="col-md-12">
+          <form action="" role="form" class="form-horizontal"
+		          ng-controller="UserInfoCtrl">
             <div class="form-group">
               <label class="col-md-2 control-label">
                 邮箱：
               </label>
               <div class="col-md-10">
-                <input type="email" class="form-control" placeholder="推荐使用126邮箱" ng-model="userInfo.email">
+                <input type="email" class="form-control"
+				   placeholder="推荐使用126邮箱" 
+				      ng-model="userInfo.email">
               </div>
             </div>
             <div class="form-group">
@@ -233,38 +233,40 @@ html页：
               </label>
               <div class="col-md-10">
                 <input type="password" class="form-control"
-                placeholder="只能是数字、字母、下划线" ng-model="userInfo.password">
+                placeholder="只能是数字、字母、下划线" 
+				     ng-model="userInfo.password">
               </div>
             </div>
             <div class="form-group">
               <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
                   <label >
-                    <input type="checkbox" ng-model="userInfo.autoLogin" >自动登陆
+                    <input type="checkbox" 
+					 ng-model="userInfo.autoLogin" >自动登陆
                   </label>
                 </div>
               </div>
             </div>
             <div class="form-group">
                      <div class="col-md-offset-2 col-md-10">
-                        <button class="btn btn-default" ng-click="getFormData()">获取Form表单上的值</button>
-               
-                        <button class="btn btn-default" ng-click="setFormData()">设置Form表单上的值</button>
-                  
-                        <button class="btn btn-default" ng-click="restForm()">重置Form表单上的值</button>
+                        <button class="btn btn-default" 
+						     ng-click="getFormData()">获取Form表单
+							    上的值</button>           
+                        <button class="btn btn-default" 
+						     ng-click="setFormData()">设置Form表单
+							   上的值</button>                  
+                        <button class="btn btn-default" 
+						    ng-click="restForm()">重置Form表单
+							   上的值</button>
                      </div>
-            </div>
-          </form>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-   </div>
-</body>
-
-{% endhighlight %}
-
+     </div>
+    </body>
 js页：
-
 {% highlight javascript %}
 var userInfoModule = angular.module('UserInfoModule', []);
 userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
@@ -291,14 +293,11 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
     };
     }
 }])
-
 {% endhighlight %}
+8.&绑定
 
-### 8.&绑定
+    <greeting greet="sayHello(name)"></greeting>
 
-{% highlight html %}
-<greeting greet="sayHello(name)"></greeting>
-{% endhighlight %}
 js页：
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
