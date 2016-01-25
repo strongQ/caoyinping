@@ -306,13 +306,15 @@ myModule.controller('MyCtrl',['$scope',function($scope){
     alert("Hello "+name);
   }
 }])
-myModule.directive("greeting",function(){
-  return{
+     myModule.directive("greeting",function(){
+     return{
     restrict:'AE',
     scope:{
       greet:'&'
     },
-    template:'<input type="text" ng-model="userName"/><br/>'+
+     template:
+	 
+	 '<input type="text" ng-model="userName"/>     <br/>'+
     '<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button>'
   }
 })
