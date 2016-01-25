@@ -13,13 +13,14 @@ tags:      [前端,Angularjs]
 
 <pre><code>
     <body>
-    双{ 1304375948024 | date 
+    1304375948024 | date 
     <br>
     1304375948024 | date:"MM/dd/yyyy @ h:mma" 
     <br>
     1304375948024 | date:"yyyy-MM-dd hh:mm:ss" 
     <br>        
     </body>
+    救命，双括号显示不了！
 </code></pre>
 
 ### 结果是:
