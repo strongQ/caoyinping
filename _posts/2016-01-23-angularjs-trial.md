@@ -116,7 +116,7 @@ div ng-controller="MyCtrl">
   </div>
 {% endhighlight %}
 js中：
-<pre>
+{% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller("MyCtrl1",['$scope',function($scope){
     $scope.ctrlFlavor="百威";
@@ -133,11 +133,13 @@ myModule.directive("drink",function(){
     }
 })
 抱歉我自己看不懂啦@
-</pre>
-5.动感超人指令
-<pre>
+{% endhighlight %}
+### 5.动感超人指令
+{% highlight html %}
 <superman strength speed>动感超人---力量+敏捷</superman>
+{% endhighlight %}
 js中：
+{% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.directive("superman",function(){
     return{
@@ -187,19 +189,19 @@ myModule.directive("light",function(){
         }
     }
 });
-</pre>
-6.表单验证
-<pre>
+{% endhighlight %}
+### 6.表单验证
+{% highlight html %}
 <body>
   <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
   <input name="userName" type="text" ng-model="user.userName" required></input>
   <input name="password" type="password" ng-model="user.password" required></input>
   <input type="submit" ng-disabled="myForm.$invalid"></input>   			
 </body>
-</pre>
-7.表单数据双向绑定
+{% endhighlight %}
+### 7.表单数据双向绑定
 html页：
-<pre>
+{% highlight html %}
 <body>
    <div class="panel panel-primary">
    	<div class="panel-heading">
@@ -250,10 +252,9 @@ html页：
    	</div>
    </div>
 </body>
-
-</pre>
+{% endhighlight %}
 js页：
-<pre>
+{% highlight javascript %}
 var userInfoModule = angular.module('UserInfoModule', []);
 userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
     $scope.userInfo = {
@@ -278,14 +279,14 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
         autoLogin: true
     };
     }
-
 }])
-
-</pre>
+{% endhighlight %}
 8.&绑定
-<pre>
+{% highlight html %}
 <greeting greet="sayHello(name)"></greeting>
+{% endhighlight %}
 js页：
+{% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller('MyCtrl',['$scope',function($scope){
 	$scope.sayHello=function(name) {
@@ -302,6 +303,5 @@ myModule.directive("greeting",function(){
 		'<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button>'
 	}
 })
-
-</pre>
-先转移到这吧！反正我——不会！
+{% endhighlight %}
+### 先转移到这吧！反正我——不会！
