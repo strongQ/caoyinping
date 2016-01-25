@@ -11,7 +11,7 @@ tags:      [前端,Angularjs]
 
 1.日期格式过滤
 
-{% highlight html %}
+<pre>
     <body>
     {{ 1304375948024 | date }}
     <br>
@@ -20,6 +20,6 @@ tags:      [前端,Angularjs]
     {{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" }}
     <br>        
     </body>
-{% endhighlight %}
+</pre>
 
 ### 结果是:
