@@ -9,7 +9,7 @@ tags:      [前端,Angularjs]
 
 1.日期格式过滤
 
-{% highlight html %}
+{% highlight %}
 <body>
     {{ 1304375948024 | date }}
     <br>
@@ -31,7 +31,7 @@ May 3, 2011
 
 html页：
 
-{% highlight html %}
+{% highlight %}
 <body>
   <div ng-controller="LoadDataCtrl">
      <ul>
@@ -104,7 +104,7 @@ myModule.directive("loader",function(){
 ### 4.独立Scope
 
 html页：
-{% highlight html %}
+{% highlight %}
 div ng-controller="MyCtrl">
       Ctrl:
       <br>
@@ -135,7 +135,7 @@ myModule.directive("drink",function(){
 抱歉我自己看不懂啦@
 {% endhighlight %}
 ### 5.动感超人指令
-{% highlight html %}
+{% highlight %}
 <superman strength speed>动感超人---力量+敏捷</superman>
 {% endhighlight %}
 js中：
@@ -191,7 +191,7 @@ myModule.directive("light",function(){
 });
 {% endhighlight %}
 ### 6.表单验证
-{% highlight html %}
+{% highlight %}
 <body>
   <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
   <input name="userName" type="text" ng-model="user.userName" required></input>
@@ -282,7 +282,7 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
 }])
 {% endhighlight %}
 8.&绑定
-{% highlight html %}
+{% highlight %}
 <greeting greet="sayHello(name)"></greeting>
 {% endhighlight %}
 js页：
