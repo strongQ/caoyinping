@@ -136,7 +136,9 @@ myModule.directive("drink",function(){
 })
 抱歉我自己看不懂啦@
 {% endhighlight %}
+
 ### 5.动感超人指令
+
 {% highlight html %}
 <superman strength speed>动感超人---力量+敏捷</superman>
 {% endhighlight %}
@@ -192,7 +194,9 @@ myModule.directive("light",function(){
     }
 });
 {% endhighlight %}
+
 ### 6.表单验证
+
 {% highlight html %}
 <body>
   <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
@@ -201,7 +205,9 @@ myModule.directive("light",function(){
   <input type="submit" ng-disabled="myForm.$invalid"></input>         
 </body>
 {% endhighlight %}
+
 ### 7.表单数据双向绑定
+
 html页：
 {% highlight html %}
 <body>
@@ -254,8 +260,11 @@ html页：
     </div>
    </div>
 </body>
+
 {% endhighlight %}
+
 js页：
+
 {% highlight javascript %}
 var userInfoModule = angular.module('UserInfoModule', []);
 userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
@@ -282,8 +291,11 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
     };
     }
 }])
+
 {% endhighlight %}
-8.&绑定
+
+### 8.&绑定
+
 {% highlight html %}
 <greeting greet="sayHello(name)"></greeting>
 {% endhighlight %}
