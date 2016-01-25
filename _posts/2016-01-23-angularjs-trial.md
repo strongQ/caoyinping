@@ -3,6 +3,7 @@ layout:    post
 title:     Angularjs上手
 category:  Angularjs
 tags:      [前端,Angularjs]
+
 ---
 
 ## 当初调研了一点AngularJS，稍微记录记录
@@ -16,7 +17,7 @@ tags:      [前端,Angularjs]
     {{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}
     <br>
     {{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" }}
-    <br>   			
+    <br>        
 </body>
 {% endhighlight %}
 
@@ -70,7 +71,7 @@ myModule.controller('LoadDataCtrl',['$scope','$http',function($scope,$http){
   </div>
   <div ng-controller="MyCtrl2">
       <loader howtoload="loadData2()">加载数据中</loader>
-  </div>   			
+  </div>        
 </body>
 {% endhighlight %}
 js中
@@ -196,7 +197,7 @@ myModule.directive("light",function(){
   <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
   <input name="userName" type="text" ng-model="user.userName" required></input>
   <input name="password" type="password" ng-model="user.password" required></input>
-  <input type="submit" ng-disabled="myForm.$invalid"></input>   			
+  <input type="submit" ng-disabled="myForm.$invalid"></input>         
 </body>
 {% endhighlight %}
 ### 7.表单数据双向绑定
@@ -204,40 +205,40 @@ html页：
 {% highlight html %}
 <body>
    <div class="panel panel-primary">
-   	<div class="panel-heading">
-   	  <div class="panel-title">双向数据绑定</div>
-   	</div>
-   	<div class="panel-body">
-   		<div class="row">
-   			<div class="col-md-12">
-   				<form action="" role="form" class="form-horizontal" ng-controller="UserInfoCtrl">
-   					<div class="form-group">
-   					  <label class="col-md-2 control-label">
-   					  	邮箱：
-   					  </label>
-   					  <div class="col-md-10">
-   					  	<input type="email" class="form-control" placeholder="推荐使用126邮箱" ng-model="userInfo.email">
-   					  </div>
-   					</div>
-   					<div class="form-group">
-   						<label class="col-md-2 control-label">
-   							密码：
-   						</label>
-   						<div class="col-md-10">
-   							<input type="password" class="form-control"
-   							placeholder="只能是数字、字母、下划线" ng-model="userInfo.password">
-   						</div>
-   					</div>
-   					<div class="form-group">
-   						<div class="col-md-offset-2 col-md-10">
-   							<div class="checkbox">
-   								<label >
-   									<input type="checkbox" ng-model="userInfo.autoLogin" >自动登陆
-   								</label>
-   							</div>
-   						</div>
-   					</div>
-   					<div class="form-group">
+    <div class="panel-heading">
+      <div class="panel-title">双向数据绑定</div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <form action="" role="form" class="form-horizontal" ng-controller="UserInfoCtrl">
+            <div class="form-group">
+              <label class="col-md-2 control-label">
+                邮箱：
+              </label>
+              <div class="col-md-10">
+                <input type="email" class="form-control" placeholder="推荐使用126邮箱" ng-model="userInfo.email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">
+                密码：
+              </label>
+              <div class="col-md-10">
+                <input type="password" class="form-control"
+                placeholder="只能是数字、字母、下划线" ng-model="userInfo.password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                  <label >
+                    <input type="checkbox" ng-model="userInfo.autoLogin" >自动登陆
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
                      <div class="col-md-offset-2 col-md-10">
                         <button class="btn btn-default" ng-click="getFormData()">获取Form表单上的值</button>
                
@@ -245,11 +246,11 @@ html页：
                   
                         <button class="btn btn-default" ng-click="restForm()">重置Form表单上的值</button>
                      </div>
-   					</div>
-   				</form>
-   			</div>
-   		</div>
-   	</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
    </div>
 </body>
 {% endhighlight %}
@@ -266,14 +267,14 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
         console.log($scope.userInfo);
     };
     $scope.setFormData=function(){
-    	$scope.userInfo={
-    		email:'damoqiongqiu@126.com',
-    		password:'damoqiongqiu',
-    		autoLogin:false
-    	}
+      $scope.userInfo={
+        email:'damoqiongqiu@126.com',
+        password:'damoqiongqiu',
+        autoLogin:false
+      }
     };
     $scope.restForm=function(){
-    	$scope.userInfo = {
+      $scope.userInfo = {
         email: "25244322@qq.com",
         password: "25244322",
         autoLogin: true
@@ -289,19 +290,19 @@ js页：
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller('MyCtrl',['$scope',function($scope){
-	$scope.sayHello=function(name) {
-		alert("Hello "+name);
-	}
+  $scope.sayHello=function(name) {
+    alert("Hello "+name);
+  }
 }])
 myModule.directive("greeting",function(){
-	return{
-		restrict:'AE',
-		scope:{
-			greet:'&'
-		},
-		template:'<input type="text" ng-model="userName"/><br/>'+
-		'<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button>'
-	}
+  return{
+    restrict:'AE',
+    scope:{
+      greet:'&'
+    },
+    template:'<input type="text" ng-model="userName"/><br/>'+
+    '<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button>'
+  }
 })
 {% endhighlight %}
 ### 先转移到这吧！反正我——不会！
