@@ -19,7 +19,6 @@ tags:      [前端,Angularjs]
     <br>
     {{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" }}    
     </body>
-    </code>
 </pre>
 
 ### 结果是:
