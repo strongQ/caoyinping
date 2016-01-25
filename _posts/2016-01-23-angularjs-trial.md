@@ -21,25 +21,3 @@ tags:      [前端,Angularjs]
 
 
 ### 结果是:
-
-    May 3, 2011
-    05/03/2011 @ 6:39AM
-    2011-05-03 06:39:08
- 再来看，前面的数字弄啥类！
-
-### 2.加载json
-
-html页：
-
-    <body>
-     <div ng-controller="LoadDataCtrl">
-      <ul>
-       <li ng-repeat="user in users">
-            {{user.name}}
-       </li>
-      </ul>
-     </div>
-    </body>
-
-js中：
-
