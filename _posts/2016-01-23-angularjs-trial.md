@@ -24,9 +24,9 @@ tags:      [前端,Angularjs]
 
 ### 结果是:
 
-    May 3, 2011 
-    05/03/2011 @ 6:39AM 
-    2011-05-03 06:39:08 
+    May 3, 2011
+    05/03/2011 @ 6:39AM
+    2011-05-03 06:39:08
  再来看，前面的数字弄啥类！
 
 ### 2.加载json
@@ -60,6 +60,7 @@ myModule.controller('LoadDataCtrl',['$scope','$http',function($scope,$http){
     });
 }])
 {% endhighlight %}
+
 要放在服务器上运行哦！尼玛读不出来啊...
 
 ### 3.指令用在不同控制器中
@@ -74,6 +75,7 @@ myModule.controller('LoadDataCtrl',['$scope','$http',function($scope,$http){
     </body>
 
 js中
+
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller('MyCtrl1',['$scope',function($scope){
@@ -113,6 +115,7 @@ html页：
     </div>
 
 js中：
+
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller("MyCtrl1",['$scope',function($scope){
@@ -130,6 +133,7 @@ myModule.directive("drink",function(){
     }
 })
 {% endhighlight %}
+
 抱歉我自己看不懂啦@
 
 ### 5.动感超人指令
@@ -139,7 +143,9 @@ myModule.directive("drink",function(){
 	</superman>
 
 js中：
+
 {% highlight javascript %}
+
 var myModule=angular.module("MyModule",[]);
 myModule.directive("superman",function(){
     return{
@@ -194,11 +200,11 @@ myModule.directive("light",function(){
 ### 6.表单验证
 
     <body>
-     <form name="myForm" ng-submit="save()" 
+     <form name="myForm" ng-submit="save()"
 	           ng- controller="TestFormModule">
-         <input name="userName" type="text" 
+         <input name="userName" type="text"
 		       ng-model="user.userName" required></input>
-         <input name="password" type="password" 
+         <input name="password" type="password"
 		       ng-model="user.password" required></input>
          <input type="submit" ng-disabled="myForm.$invalid">
 		 </input>         
@@ -223,7 +229,7 @@ html页：
               </label>
               <div class="col-md-10">
                 <input type="email" class="form-control"
-				   placeholder="推荐使用126邮箱" 
+				   placeholder="推荐使用126邮箱"
 				      ng-model="userInfo.email">
               </div>
             </div>
@@ -233,7 +239,7 @@ html页：
               </label>
               <div class="col-md-10">
                 <input type="password" class="form-control"
-                placeholder="只能是数字、字母、下划线" 
+                placeholder="只能是数字、字母、下划线"
 				     ng-model="userInfo.password">
               </div>
             </div>
@@ -241,7 +247,7 @@ html页：
               <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
                   <label >
-                    <input type="checkbox" 
+                    <input type="checkbox"
 					 ng-model="userInfo.autoLogin" >自动登陆
                   </label>
                 </div>
@@ -249,13 +255,13 @@ html页：
             </div>
             <div class="form-group">
                      <div class="col-md-offset-2 col-md-10">
-                        <button class="btn btn-default" 
+                        <button class="btn btn-default"
 						     ng-click="getFormData()">获取Form表单
 							    上的值</button>           
-                        <button class="btn btn-default" 
+                        <button class="btn btn-default"
 						     ng-click="setFormData()">设置Form表单
 							   上的值</button>                  
-                        <button class="btn btn-default" 
+                        <button class="btn btn-default"
 						    ng-click="restForm()">重置Form表单
 							   上的值</button>
                      </div>
@@ -267,6 +273,7 @@ html页：
      </div>
     </body>
 js页：
+
 {% highlight javascript %}
 var userInfoModule = angular.module('UserInfoModule', []);
 userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
@@ -299,6 +306,7 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function ($scope) {
     <greeting greet="sayHello(name)"></greeting>
 
 js页：
+
 {% highlight javascript %}
 var myModule=angular.module("MyModule",[]);
 myModule.controller('MyCtrl',['$scope',function($scope){
@@ -313,10 +321,11 @@ myModule.controller('MyCtrl',['$scope',function($scope){
       greet:'&'
     },
      template:
-	 
+
 	 '<input type="text" ng-model="userName"/>     <br/>'+
     '<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button>'
   }
 })
 {% endhighlight %}
+s
 ### 先转移到这吧！反正我——不会！
