@@ -11,8 +11,14 @@ tags:      [前端,Angularjs]
 
 1.日期格式过滤
 
-
-    
+    <body>
+    /{{ 1304375948024 | date /}}
+    <br>
+    /{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" /}}
+    <br>
+    /{{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" /}}
+    <br>        
+    </body>
 
 
 ### 结果是:
