@@ -38,7 +38,7 @@ html页：
      <div ng-controller="LoadDataCtrl">
       <ul>
        <li ng-repeat="user in users">
-            {{user.name}}
+            {user.name}
        </li>
       </ul>
      </div>
