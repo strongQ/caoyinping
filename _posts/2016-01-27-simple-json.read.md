@@ -1,8 +1,8 @@
 ---
 layout:                   post
-title:                      简单的文件读取（json)
+title:                      国际化简单的文件读取（json)
 category:              json
-tags:                     [json,字符串]
+tags:                     [json,字符串,国际化]
 
 ---
 
@@ -51,4 +51,38 @@ select 下拉必须组成 data-i18n("xx")格式，特别是民族等竟然不允
 "yy":"xx"           
 {% endhighlight %}
 
+## 正式开始国际化
+
+1.引入js
+{% highlight javascript %}
+<script src="../assets/js/i18next.js" type="text/javascript"></script>
+{% endhighlight %}
+2.初始化
+
+  function initLang() {
+            $.i18n.init({
+                detectLngQS: 'lang',
+                useCookie: false,
+                fallbackLng: 'en',
+                resGetPath: "Locales/__ns__.__lng__.json",
+                ns: {
+                    namespaces: ['translation'],
+                    defaultNs: 'translation'
+                }
+            }, function (t) {
+
+                $("body").i18n();
+            });
+        }
+3.应用
+
+data-i18n="xx" //html页中
+
+i18n.t("xx") //js中
+当然得是json数据哦！
+
+### 4.遇到的问题
+
+1.jqgrid label无法应用
+解决办法：function(t)中 jqgrid方法
 
