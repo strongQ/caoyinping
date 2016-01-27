@@ -18,12 +18,12 @@ http://coolshell.info 哥是全部copy，感谢，觉得文章写的好就没删
  *^_^*如果愿意，Star本项目一个吧~
 
 ####本项目使用了
-1. CNZZ的网站统计服务，官网：http://cnzz.com
+1. CNZZ的网站统计服务，官网：http://cnzz.com,我没用这个。
 2. 多说的评论功能，官网:http://duoshuo.com/
 
 ####联系方式
 
-联系方式：qq(934107508), Email(ouyanglip@gmail.com)
+联系方式：qq(345876437), Email(zhangqi@zhangqi.win)
 
 
 ####使用本项目作模板的博客链接
@@ -35,4 +35,4 @@ http://coolshell.info 哥是全部copy，感谢，觉得文章写的好就没删
 * http://tencentlocation.github.io  
 * http://wtaps.github.io
 * http://maoshu.cc
-* tttp://caoyinping.win  
+* http://caoyinping.win  
