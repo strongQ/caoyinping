@@ -13,7 +13,7 @@ tags:          [数据库,sqlite,mongodb,compact]
 
 ## 2.c#连接Access
 
-{% hightlight c# %}
+{% highlight c# %}
 <pre>
 <add name="connstr" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=c:\users\cao\documents\visual studio 2013\Projects\Access\Access\db1.mdb" providerName="Access"/>
 然后，OleDbConnection->OleDbCommand...
@@ -24,7 +24,7 @@ tags:          [数据库,sqlite,mongodb,compact]
 
 **dll必须引入的哦！**
 
-  {% hightlight c# %}
+  {% highlight c# %}
   <appSettings>
       <add key="dbPath" value="~/db/foodDB.db"/>
       <add key="sqlite" value="Data Source={0};Version=3"/>
