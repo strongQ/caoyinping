@@ -35,9 +35,9 @@ select 下拉必须组成 data-i18n("xx")格式，特别是名族等竟然不允
 2.机械运动
     string str = getjson();
             StringBuilder b = new StringBuilder();
-           // List obj=JsonConvert.DeserializeObject&lt;List&gt;(str);
+           // List obj=JsonConvert.DeserializeObject<List>(str);
             string[] a = str.Split(',');
-            for (int i = 0; i &lt; a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 string[] name = a[i].Split('"');
                 //b.AppendLine(string.Format("{1}",name[1],name[3] ));
