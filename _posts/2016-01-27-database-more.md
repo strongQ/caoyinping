@@ -14,10 +14,10 @@ tags:          [数据库,sqlite,mongodb,compact]
 ## 2.c#连接Access
 
 {% highlight c# %}
-<pre>
+
 <add name="connstr" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=c:\users\cao\documents\visual studio 2013\Projects\Access\Access\db1.mdb" providerName="Access"/>
 然后，OleDbConnection->OleDbCommand...
-</pre>
+
 {% endhighlight %}
 
 ## 3.c#连接sqlite
@@ -42,4 +42,27 @@ tags:          [数据库,sqlite,mongodb,compact]
             conn = conn.Replace("{0}", dbPath);
             connStr = conn;
         }
+{% endhighlight %}
+
+## 4.simple.data辅助连接sql compact
+**连接方法:**
+{% highlight c# %}
+public dynamic DB()
+        {
+            if (_db == null)
+            {
+                var c = System.Web.HttpContext.Current;
+                var s = ConfigurationManager.ConnectionStrings["MyPhotoBlog"];
+                if (s == null || String.IsNullOrWhiteSpace(s.ConnectionString))
+                {
+                    _db = Simple.Data.Database.OpenFile(c.Server.MapPath("~/App_Data/MyPhotoBlog.sdf"));
+                }
+                else
+                {
+                    _db = Simple.Data.Database.OpenConnection(s.ConnectionString);
+                }
+            }
+            return _db;
+        }
+
 {% endhighlight %}
