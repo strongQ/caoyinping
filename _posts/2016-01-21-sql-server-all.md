@@ -133,11 +133,10 @@ alter table huosoftbbs.BBSXP_Threads drop constraint FK_BBSXP_Threads_BBSXP_User
  	
  	11.sql 常用更新
  	｛% hightlight sql %}	update  `pre_forum_thread` t,`pre_common_member` m SET t.authorid=m.uid where t.author=m.username;
-   
 update `pre_forum_forum` f
 LEFT JOIN `pre_forum_thread` t on t.fid=f.fid
 set f.threads=(SELECT count(fid) from `pre_forum_thread` where fid=f.fid)
-where f.fid=t.fid 	{% endhighlight %} 
+where f.fid=t.fid 	 	{% endhighlight %} 
  	
  	
  	
