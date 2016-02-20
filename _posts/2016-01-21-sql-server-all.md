@@ -121,8 +121,7 @@ set nocount on
    EXEC(@sql)
 set nocount off
 END
- 	{% endhighlight %}              
- 	
+ 	{% endhighlight %}
  	10.sql去除外键约束
  	先查后删
  	｛% highlight sql %}select name  
