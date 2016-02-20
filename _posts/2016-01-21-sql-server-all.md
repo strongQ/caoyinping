@@ -125,24 +125,19 @@ END
  	
  	10.sql去除外键约束
  	先查后删
- 	｛% highlight sql %}
-select name  
+ 	｛% highlight sql %}select name  
 from  sys.foreign_key_columns f join sys.objects o on f.constraint_object_id=o.object_id 
 where f.parent_object_id=object_id('huosoftbbs.BBSXP_Threads')          
  
-alter table huosoftbbs.BBSXP_Threads drop constraint FK_BBSXP_Threads_BBSXP_Users
- 	{% endhighlight %} 
+alter table huosoftbbs.BBSXP_Threads drop constraint FK_BBSXP_Threads_BBSXP_Users{% endhighlight %} 
  	
  	11.sql 常用更新
- 	｛% hightlight sql %}
- 	update  `pre_forum_thread` t,`pre_common_member` m SET t.authorid=m.uid where t.author=m.username;
+ 	｛% hightlight sql %}	update  `pre_forum_thread` t,`pre_common_member` m SET t.authorid=m.uid where t.author=m.username;
    
 update `pre_forum_forum` f
 LEFT JOIN `pre_forum_thread` t on t.fid=f.fid
 set f.threads=(SELECT count(fid) from `pre_forum_thread` where fid=f.fid)
-where f.fid=t.fid
-
- 	{% endhighlight %} 
+where f.fid=t.fid 	{% endhighlight %} 
  	
  	
  	
