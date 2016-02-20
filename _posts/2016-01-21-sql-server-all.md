@@ -131,7 +131,7 @@ from  sys.foreign_key_columns f join sys.objects o on f.constraint_object_id=o.o
 where f.parent_object_id=object_id('huosoftbbs.BBSXP_Threads')          
  
 alter table huosoftbbs.BBSXP_Threads drop constraint FK_BBSXP_Threads_BBSXP_Users
- 	{% endhighlight %}
+ 	{% endhighlight %} 
  	
  	11.sql 常用更新
  	｛% hightlight sql %}
@@ -142,7 +142,7 @@ LEFT JOIN `pre_forum_thread` t on t.fid=f.fid
 set f.threads=(SELECT count(fid) from `pre_forum_thread` where fid=f.fid)
 where f.fid=t.fid
 
- 	{% endhighlight %}
+ 	{% endhighlight %} 
  	
  	
  	
