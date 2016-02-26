@@ -58,6 +58,7 @@ select 下拉必须组成 data-i18n("xx")格式，特别是民族等竟然不允
 <script src="../assets/js/i18next.js" type="text/javascript"></script>
 {% endhighlight %}
 2.初始化
+
 {% highlight javascript %}
   function initLang() {
             $.i18n.init({
@@ -73,7 +74,8 @@ select 下拉必须组成 data-i18n("xx")格式，特别是民族等竟然不允
                 $("body").i18n();
             });
         }
-        {% endhighlight %}
+  {% endhighlight %}
+  
 3.应用
 
 data-i18n="xx" //html页中
