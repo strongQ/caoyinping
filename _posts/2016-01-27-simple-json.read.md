@@ -70,7 +70,6 @@ select 下拉必须组成 data-i18n("xx")格式，特别是民族等竟然不允
                     defaultNs: 'translation'
                 }
             }, function (t) {
-
                 $("body").i18n();
             });
         }
