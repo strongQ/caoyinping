@@ -1,10 +1,12 @@
 ---
-layout: post
-title: Winform运用
-description: 一些工作中收集的代码
-keywords: winform
-categories : [winform]
-tags : [winform, 工作]
+
+layout:           post
+title:            Winform运用
+description:      一些工作中收集的代码
+keywords:         winform
+categories :      [winform]
+tags :            [winform, 工作]
+
 ---
 
 ### 1.窗体拖动
