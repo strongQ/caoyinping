@@ -49,7 +49,7 @@ tags:                    [多线程,随机数]
             }
         }
         
-         #region Linq中asParallel()
+    /* Linq中asParallel() */
         public class Custom
         {
             public string Name { get; set; }
@@ -78,8 +78,8 @@ tags:                    [多线程,随机数]
             sw.Stop();
             Console.WriteLine("Parallel Linq time is {0}.", sw.ElapsedMilliseconds);
         } 
-        #endregion
-        #region 并发Parallel
+     
+       /* 并发Parallel */
         public class ParallelDemo
         {
             private Stopwatch stopWatch = new Stopwatch();
@@ -133,9 +133,9 @@ tags:                    [多线程,随机数]
                 Console.WriteLine("end run " + stopWatch.ElapsedMilliseconds + " ms");
             }
         } 
-        #endregion
+       
 
-        #region LookUp分组
+        /* LookUp分组 */
         public static void OrderByTest()
         {
             var sw = Stopwatch.StartNew();
@@ -168,7 +168,7 @@ tags:                    [多线程,随机数]
         } 
         #endregion
 
-        #region 普通Task
+        /* 普通Task */
         static void tryTask()
         {
             var task1 = new Task(() =>
@@ -189,9 +189,9 @@ tags:                    [多线程,随机数]
             Console.WriteLine("All Over");
             Console.Read();
         } 
-        #endregion
+        
 
-        #region 继续ContinueTask
+        /* 继续ContinueTask */
         static void ContinueTask() 
        
         {
@@ -218,9 +218,9 @@ tags:                    [多线程,随机数]
             Console.WriteLine(result.Result.ToString());
             Console.Read();
         } 
-        #endregion
+     
 
-        #region 终端Task
+        /* 终端Task */
         static void BreakTask()
         {
             var tokenSource = new CancellationTokenSource();
@@ -245,9 +245,9 @@ tags:                    [多线程,随机数]
             Console.ReadKey();
             tokenSource.Cancel();
         } 
-        #endregion
+        
 
-        #region 父子关联task
+        /* 父子关联task */
         static void ParentTask()
         {
             var pTask = Task.Factory.StartNew(() =>
@@ -263,8 +263,8 @@ tags:                    [多线程,随机数]
             Console.WriteLine("Flag");
             Console.Read();
         } 
-        #endregion
-        #region Future----任务的结果
+        
+        /* Future----任务的结果 */
         public static Tuple<int,int> TaskWithResult(object division)
         {
             Tuple<int, int> div = (Tuple<int, int>)division;
@@ -276,10 +276,10 @@ tags:                    [多线程,随机数]
          var t1 = new Task<Tuple<int, int>>(TaskWithResult, Tuple.Create<int, int>(8, 3));
           t1.Start();
           Console.WriteLine(t1.Result);
-        #endregion
+        
 
 
-        #region 任务2和任务3要等待任务1完成后，取得任务1的结果，然后开始执行。任务4要等待任务2完成，取得其结果才能执行，最终任务3和任务4都完成了，合并结果，任务完成。
+        /* 任务2和任务3要等待任务1完成后，取得任务1的结果，然后开始执行。任务4要等待任务2完成，取得其结果才能执行，最终任务3和任务4都完成了，合并结果，任务完成。*/
         static void GetResult()
         {
             Task.Factory.StartNew(() =>
@@ -312,6 +312,6 @@ tags:                    [多线程,随机数]
                 });
             Console.Read();
         } 
-        #endregion
+       
 
 {% endhighlight %}
