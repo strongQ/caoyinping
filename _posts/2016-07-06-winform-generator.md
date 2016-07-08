@@ -1,6 +1,6 @@
 ---
 layout:           post
-title:            Winform运用
+title:            界面生成器
 description:      winform生成器
 keywords:         winform
 categories :      [winform]

@@ -3,7 +3,7 @@ layout:  post
 title: Dapper-一个轻量级的orm
 description:  Dapper只有一个代码文件，完全开源，你可以放在项目里的任何位置，来实现数据到对象的ORM操作，体积小速度快
 keywords:  ORM
-categories:[数据库]
+categories: [数据库]
 tags: [sql]
 ---
 

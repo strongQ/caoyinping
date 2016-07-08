@@ -1,7 +1,7 @@
 ---
 layout:           post
-title:            Winform运用
-description:      自定义控件
+title:            自定义控件
+description:      winform自定义控件
 keywords:         winform
 categories :      [winform]
 tags :            [winform, 工作]
