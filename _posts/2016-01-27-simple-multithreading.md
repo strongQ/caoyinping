@@ -313,5 +313,20 @@ tags:                    [多线程,随机数]
             Console.Read();
         } 
        
+         /* 获取更新委托结果值 */
+         IAsyncResult result = DelegateUpdate.BeginInvoke(x =>
+            {
+                errorMsg = DelegateUpdate.EndInvoke(x).ToString();
+                if (errorMsg != "")
+                {
+                    tssPic.Image = AUpdateClient.Properties.Resources.exclamation;
+                    Message = errorMsg;
+                }
+                else
+                {
+                    tssPic.Image = AUpdateClient.Properties.Resources.accept;
+                }
+
+            }, null);
 
 {% endhighlight %}
