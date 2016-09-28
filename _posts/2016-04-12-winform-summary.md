@@ -31,7 +31,7 @@ winform 一些常用方法
         }
         
 ## 2.限制多程序运行
- using (new Mutex(true, Assembly.GetExecutingAssembly().FullName, out newMutexCreated))
+    using (new Mutex(true, Assembly.GetExecutingAssembly().FullName, out newMutexCreated))
                 {
                     if (!newMutexCreated)
                     {
@@ -40,7 +40,7 @@ winform 一些常用方法
                     }
                 }
                 
-   static bool CheckRunning()
+      static bool CheckRunning()
         {
             bool result = false;
             int ProceedingCount = 0;
