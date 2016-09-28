@@ -29,6 +29,36 @@ winform 一些常用方法
                }
                   base.WndProc(ref m);
         }
+        
+## 2.限制多程序运行
+ using (new Mutex(true, Assembly.GetExecutingAssembly().FullName, out newMutexCreated))
+                {
+                    if (!newMutexCreated)
+                    {
+                        MessageBox.Show("服务程序已经启动");
+                        System.Environment.Exit(0);
+                    }
+                }
+                
+   static bool CheckRunning()
+        {
+            bool result = false;
+            int ProceedingCount = 0;
+            System.Diagnostics.Process[] Processes;
+            Processes = System.Diagnostics.Process.GetProcessesByName("Server"); foreach (System.Diagnostics.Process IsProcedding in Processes)
+            {
+                if (IsProcedding.ProcessName == "Server")
+                {
+                    ProceedingCount += 1;
+                }
+            }
+            if (ProceedingCount > 1)
+            {
+                MessageBox.Show("服务程序已经启动", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                result = true;
+            }
+            return result;
+        }
                
 
 
