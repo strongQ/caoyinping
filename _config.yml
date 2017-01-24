@@ -21,14 +21,14 @@ kramdown:
   use_coderay: false
 
 JB :
-  IMAGE_PATH : http://caoyinping.win/images
+  IMAGE_PATH : http://zhangqi.win/images
 
 # presonal config
-domain: http://caoyinping.win
-title: StrongQ-ms-Ping
+domain: http://zhangqi.win
+title: StrongQ
 description: Have you ever had/Never say never
 author: Qi.Zhang
-email: zhangqi@zhangqi.win
+email: zhangqi@raoqing.win
 github: strongQ
 port: 8078
 config:
