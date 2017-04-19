@@ -8,7 +8,7 @@ description:  整理的一些软件设计参考资料
 
 ### UML图示
 
-[![](https://img.alicdn.com/imgextra/i2/232721121/TB2kmUxmb0kpuFjy0FjXXcBbVXa_!!232721121.jpg)
+![](https://img.alicdn.com/imgextra/i2/232721121/TB2kmUxmb0kpuFjy0FjXXcBbVXa_!!232721121.jpg)
 
 ### 设计模式草图
 

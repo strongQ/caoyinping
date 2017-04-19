@@ -1,5 +1,5 @@
 ---
-layout：  post
+layout:  post
 title:    分布式数据采集系统
 category : 项目
 tags:     [服务，网络，脚本]
@@ -10,11 +10,10 @@ description:
 ### 项目介绍
   该系统功能不复杂，但是内部的一些模块还是具有一定的价值的。
   一共分为3个部分：     
-  
-  1、Brain 控制中心
+
+  1、Brain 控制中心   
   控制所有采集器，收集采集器配置信息，动态配置节点下的采集器。       
-  
-  2、DataCollectorUnit 采集器
+  2、DataCollectorUnit 采集器   
   负责采集工业数据，并且和Brain进行通信。      
   3、ModuleSetting 采集器配置界面     
   对采集器信息进行客户端配置
