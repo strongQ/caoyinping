@@ -34,6 +34,8 @@ description: 工作中需要的oracle语句
 
     grant resource,connect to db_hxzg;
 
+    grant dba to db_hxzg
+
 4,给其他用户访问权限（db_hxzg以DBA权限登录）
 
      grant select any table to sun;
