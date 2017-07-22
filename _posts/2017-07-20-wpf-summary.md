@@ -72,3 +72,114 @@ description:  工作中记录的一些WPF知识
          return myfactory;
      }
       ChannelFactory<IDuty> factory = ServiceFactory.GetFactory<IDuty>(ServiceFactory.Instance.dutyClientURIFormat);
+
+### 7、TabControl
+    <TabControl ItemsSource="{Binding Objects}" SelectedIndex="0" TabStripPlacement="Left" >
+       <TabControl.Template>
+           <ControlTemplate TargetType="TabControl">
+               <Grid>
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="Auto"/>
+                       <ColumnDefinition />
+                   </Grid.ColumnDefinitions>
+                   <ScrollViewer
+           HorizontalScrollBarVisibility="Disabled"  
+           VerticalScrollBarVisibility="Auto"
+           FlowDirection="RightToLeft">
+                       <TabPanel
+                   x:Name="HeaderPanel"
+                   Panel.ZIndex ="0"
+                   KeyboardNavigation.TabIndex="1"
+                   IsItemsHost="true"
+               />
+                   </ScrollViewer>
+                   <ContentPresenter
+           x:Name="PART_SelectedContentHost"
+           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+           ContentSource="SelectedContent" Grid.Column="1"
+       />
+               </Grid>
+           </ControlTemplate>
+       </TabControl.Template>
+       <TabControl.Resources>       
+       <DataTemplate DataType="{x:Type vm:VM_DutyCheck}">
+                   <v:DutyCheck DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_DutyCheck1}">
+                   <v:DutyCheck1 DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_DutyExceptionCheck}">
+                   <v:DutyExceptionCheck DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_ArtificialCheck}">
+                   <v:ArtificialCheck DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_DispatchingCheckPresence}">
+                   <v:DispatchingCheckPresence DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_DispatchingRecord}">
+                   <v:DispatchingRecord DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm:VM_FailedRecord}">
+                   <v:FailedRecord DataContext="{Binding}"/>
+               </DataTemplate>
+
+               <DataTemplate DataType="{x:Type vm:VM_ExceptionCase}">
+                   <v:ExceptionCase DataContext="{Binding}"/>
+               </DataTemplate>
+
+
+               <DataTemplate DataType="{x:Type vm:VM_DutyCheck2}">
+                   <v:DutyCheck2xaml DataContext="{Binding}"/>
+               </DataTemplate>
+
+               <DataTemplate DataType="{x:Type vm:VM_UnderFeedBackRecord}">
+                   <v:UnderFeedBackRecord DataContext="{Binding}"/>
+               </DataTemplate>
+
+               <DataTemplate DataType="{x:Type vm:VM_UnSendRecord}">
+                   <v:UnSendRecord DataContext="{Binding}"/>
+
+               </DataTemplate>
+
+
+               <DataTemplate DataType="{x:Type vm2:VM_CheckStatistics}">
+                   <v2:CheckStatistics DataContext="{Binding}"/>
+               </DataTemplate>
+               <DataTemplate DataType="{x:Type vm3:VM_AttentionStatistics}">
+                   <v3:AttentionStatistics DataContext="{Binding}"/>
+               </DataTemplate>
+               <!--勤务报备检查统计表-->
+               <DataTemplate DataType="{x:Type vm6:VM_BeobeiStatistics}">
+                   <v6:BeobeiStatistics DataContext="{Binding}"/>
+               </DataTemplate>
+
+               <!--勤务等级变更执行情况统计表-->
+               <DataTemplate DataType="{x:Type vm6:VM_StartupStatistics}">
+                   <v6:StartupStatistics DataContext="{Binding}"/>
+               </DataTemplate>
+
+               <DataTemplate DataType="{x:Type vm6:VM_WddStatistics}">
+                   <v6:WddStatistics DataContext="{Binding}"/>
+
+               </DataTemplate>
+
+           </TabControl.Resources>
+           <TabControl.ItemTemplate>
+               <DataTemplate>
+                   <StackPanel SnapsToDevicePixels="True" Orientation="Horizontal" Margin="25,3,1,6">
+                       <TextBlock FontSize="{StaticResource HeaderFontSize}" Text="{Binding Header}"/>
+                       <Decorator MinWidth="24">
+                           <TextBlock FontSize="{StaticResource DefaultFontSize}" Name="tb" Margin="8,-2,0,2" Padding="5,0"
+               Style="{StaticResource CountTips}" Text="{Binding ItemsCount}"/>
+                       </Decorator>
+                   </StackPanel>
+                   <DataTemplate.Triggers>
+                       <Trigger Property="Text" Value=""  SourceName="tb">
+                           <Setter Property="Visibility" Value="Collapsed" TargetName="tb" />
+                       </Trigger>
+                   </DataTemplate.Triggers>
+               </DataTemplate>
+           </TabControl.ItemTemplate>
+
+       </TabControl>
