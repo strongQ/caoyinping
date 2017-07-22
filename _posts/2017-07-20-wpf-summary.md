@@ -183,3 +183,17 @@ description:  工作中记录的一些WPF知识
            </TabControl.ItemTemplate>
 
        </TabControl>
+
+### 8、DataGrid
+    <DataGridTemplateColumn HeaderStyle="{StaticResource CityNameStyle1}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Width="99">
+                                        <TextBlock
+                                            Foreground="{Binding IsQualified}"
+                                            Style="{DynamicResource DateGridTextBlock2}"
+                                            Text="{Binding Fj}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
