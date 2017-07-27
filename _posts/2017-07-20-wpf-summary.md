@@ -197,3 +197,17 @@ description:  工作中记录的一些WPF知识
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+
+### 9、在ViewModel中调用事件
+
+ 1、引用 System.Windows.Interactivity.dll 程序集之后，我们在 View 中添加xmlns的引用如下：
+
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
+
+      <!--让Load事件触发LoadDataCommand命令-->
+         <i:Interaction.Triggers>
+             <i:EventTrigger EventName="Loaded">
+                 <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
+             </i:EventTrigger>
+         </i:Interaction.Triggers>
