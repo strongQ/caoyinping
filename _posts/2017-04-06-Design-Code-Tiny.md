@@ -31,3 +31,38 @@ description:  整理的一些软件设计参考资料
            StandardKernel kernel = new StandardKernel();//创建Ioc容器
            kernel.Bind<IDataAccess>().To<SqlServerDal>();//注册依赖
           Order order = kernel.Get<Order>();//获取目标对象
+
+
+### 一些扩展方法
+
+    public class Compare<T, C> : IEqualityComparer<T>
+    {
+        private Func<T, C> _getField;
+        public Compare(Func<T, C> getfield)
+        {
+            this._getField = getfield;
+        }
+        public bool Equals(T x, T y)
+        {
+            return EqualityComparer<C>.Default.Equals(_getField(x), _getField(y));
+        }
+        public int GetHashCode(T obj)
+        {
+            return EqualityComparer<C>.Default.GetHashCode(this._getField(obj));
+        }
+    }
+    public static class CommonHelper
+    {
+        /// <summary>
+        /// 自定义Distinct扩展方法
+        /// </summary>
+        /// <typeparam name="T">要去重的对象类</typeparam>
+        /// <typeparam name="C">自定义去重的字段类型</typeparam>
+        /// <param name="source">要去重的对象</param>
+        /// <param name="getfield">获取自定义去重字段的委托</param>
+        /// <returns></returns>
+        public static IEnumerable<T> MyDistinct<T, C>(this IEnumerable<T> source, Func<T, C> getfield)
+        {
+            return source.Distinct(new Compare<T, C>(getfield));
+        }
+    }
