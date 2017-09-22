@@ -211,3 +211,20 @@ description:  工作中记录的一些WPF知识
                  <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
              </i:EventTrigger>
          </i:Interaction.Triggers>
+
+
+### 10、数据模板选择器
+    public class MessageTemplateSelector:DataTemplateSelector
+      {
+
+              public override DataTemplate SelectTemplate(object item, DependencyObject container)
+              {
+                    var message = item as ReplyModel;
+              }
+
+      }
+
+   前台绑定：
+
+     <local:MessageTemplateSelector x:Key="MsgSelector" MessageTemplate="{StaticResource MessageTemplate}" WordLeftTemplate="{StaticResource WordLeftTemplate}" AudioLeftTemplate="{StaticResource AudioLeftTemplate}"
+                                     WordRightTemplate="{StaticResource WordRightTemplate}" FileLeftTemplate="{StaticResource FileLeftTemplate}" FileRightTemplate="{StaticResource FileRightTemplate}">
