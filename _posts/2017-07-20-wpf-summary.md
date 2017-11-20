@@ -228,3 +228,53 @@ description:  工作中记录的一些WPF知识
 
      <local:MessageTemplateSelector x:Key="MsgSelector" MessageTemplate="{StaticResource MessageTemplate}" WordLeftTemplate="{StaticResource WordLeftTemplate}" AudioLeftTemplate="{StaticResource AudioLeftTemplate}"
                                      WordRightTemplate="{StaticResource WordRightTemplate}" FileLeftTemplate="{StaticResource FileLeftTemplate}" FileRightTemplate="{StaticResource FileRightTemplate}">
+
+
+### 11、wpf窗体遮罩        
+     /// <summary>
+     /// 显示窗体,扩展方法
+     /// </summary>
+     /// <param name="box">父窗体</param>
+     /// <param name="owner">子窗体</param>
+     /// <returns></returns>
+     public static bool? ShowWindow(this Window box,Window owner)
+     {
+         if (owner != null)
+         {
+             box.Owner = owner;
+             //蒙板
+             Grid layer = new Grid() { Background = new SolidColorBrush(Color.FromArgb(128, 0, 0, 0)) };
+             //父级窗体原来的内容
+             UIElement original = owner.Content as UIElement;
+             owner.Content = null;
+             //容器Grid
+             Grid container = new Grid();
+             container.Children.Add(original);//放入原来的内容
+             container.Children.Add(layer);//在上面放一层蒙板
+                                           //将装有原来内容和蒙板的容器赋给父级窗体
+             owner.Content = container;
+             box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+         }
+         return box.ShowDialog();
+     }
+
+
+     // 窗体关闭事件
+     private void UCInstructSendDeptWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+            {
+                if (this.Owner != null)
+                {
+                    //容器Grid
+                    Grid grid = this.Owner.Content as Grid;
+                    //父级窗体原来的内容
+                    UIElement original = VisualTreeHelper.GetChild(grid, 0) as UIElement;
+                    //将父级窗体原来的内容在容器Grid中移除
+                    grid.Children.Remove(original);
+                    //赋给父级窗体
+                    this.Owner.Content = original;
+                }
+
+                VisualStateManager.GoToState(this, "Closed", true);
+                //e.Cancel = true;
+            }
