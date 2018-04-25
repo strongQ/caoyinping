@@ -278,3 +278,9 @@ description:  工作中记录的一些WPF知识
                 VisualStateManager.GoToState(this, "Closed", true);
                 //e.Cancel = true;
             }
+
+### 12、wpf窗体固定位置
+
+       var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+       logoWindow.Left = desktopWorkingArea.Right - logoWindow.Width-50;
+       logoWindow.Top = desktopWorkingArea.Bottom - logoWindow.Height-100;
