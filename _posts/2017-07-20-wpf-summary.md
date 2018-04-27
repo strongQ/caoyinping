@@ -68,10 +68,50 @@ description:  工作中记录的一些WPF知识
     public static ChannelFactory<T> GetFactory<T>(string address)
      {
          BasicHttpBinding binding = new BasicHttpBinding();
+         //msmq绑定
+         NetMsmqBinding binding = new NetMsmqBinding();
+         // 设定非事务
+         binding.ExactlyOnce = false;
+         binding.Security = new NetMsmqSecurity() { Mode = NetMsmqSecurityMode.None };
+         binding.QueueTransferProtocol = QueueTransferProtocol.Native;
+
          ChannelFactory<T> myfactory = new ChannelFactory<T>(binding, new EndpointAddress(address));
          return myfactory;
+
+
+
+
+         // msmq wcf配置
+          <system.serviceModel>
+          <bindings>
+
+           <netMsmqBinding>
+             <binding name="msmqBinding" exactlyOnce="false">
+              <security mode="None" />
+            </binding>
+           </netMsmqBinding>
+
+          </bindings>
+          <client>
+
+
+            <endpoint address="net.msmq://localhost/private/fjtosj_mq" binding="netMsmqBinding"
+             bindingConfiguration="msmqBinding" contract="JP.HCZZP.WPFAPP.WCF.Contracts.ISj"
+             name="NetMsmqBinding_ISj">
+            <identity>
+              <dns value="localhost" />
+             </identity>
+             </endpoint>
+          </client>
+          <services>
+              <service name="ConsoleApp1.SjService">
+                <endpoint address="net.msmq://localhost/private/fjtosj_mq" binding="netMsmqBinding" bindingConfiguration="msmqBinding"
+               contract="JP.HCZZP.WPFAPP.WCF.Contracts.ISj"/>
+          </service>
+         </system.serviceModel>
+
      }
-      ChannelFactory<IDuty> factory = ServiceFactory.GetFactory<IDuty>(ServiceFactory.Instance.dutyClientURIFormat);
+
 
 ### 7、TabControl
     <TabControl ItemsSource="{Binding Objects}" SelectedIndex="0" TabStripPlacement="Left" >
@@ -198,6 +238,114 @@ description:  工作中记录的一些WPF知识
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
+
+                        <Style TargetType="{x:Type uc:PageSortingDataGrid}" >
+                            <Setter Property="AutoGenerateColumns" Value="False"/>
+                            <Setter Property="AlternatingRowBackground" Value="{DynamicResource AlternatingRowBackground}"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CanUserAddRows" Value="False"/>
+                            <Setter Property="CanUserDeleteRows" Value="False"/>
+                            <Setter Property="CanUserResizeColumns" Value="False"/>
+
+
+                            <Setter Property="EnableRowVirtualization" Value="True"/>
+                            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
+                            <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
+                            <Setter Property="GridLinesVisibility" Value="Vertical"/>
+                            <Setter Property="IsReadOnly" Value="True"/>
+                            <Setter Property="RowBackground" Value="{DynamicResource RowBackground}"/>
+                            <Setter Property="RowHeaderWidth" Value="0"/>
+                            <Setter Property="SelectionMode" Value="Single"/>
+                            <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+                            <!--网格线颜色-->
+
+                        </Style>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                            <Setter Property="MinWidth" Value="0" />
+                            <Setter Property="MinHeight" Value="32" />
+                            <Setter Property="Foreground" Value="{DynamicResource DefaultForeground}" />
+                            <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="Background" Value="{DynamicResource HeaderBackground}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridColumnHeader">
+                                        <Border Background="{TemplateBinding Background}" x:Name="BackgroundBorder" BorderThickness="0"
+                                                BorderBrush="Transparent"
+                                                Width="Auto">
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Name="txt"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill"   Width="8" Height="6" Fill="White" Margin="0,0,50,0"
+                                                      VerticalAlignment="Center" RenderTransformOrigin="1,1" />
+                                                <Rectangle Width="0" Fill="#d6c79b" HorizontalAlignment="Right" Grid.ColumnSpan="1" />
+
+                                            </Grid>
+
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+
+                            </Setter>
+                            <Style.Triggers>
+
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Foreground" Value="Yellow"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" Value="#0188FB"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                         </Style>
+                        <!--行样式触发-->
+                        <!--背景色改变必须先设置cellStyle 因为cellStyle会覆盖rowStyle样式-->
+                        <Style  TargetType="DataGridRow">
+
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="FontSize" Value="{DynamicResource DefaultSmalFontSize}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DefaultForeground}" />
+                            <Style.Triggers>
+                                <!--隔行换色-->
+                                <!--<Trigger Property="AlternationIndex" Value="0" >
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="AlternationIndex" Value="1" >
+                                    <Setter Property="Background" Value="{DynamicResource RowBackground}" />
+                                </Trigger>-->
+
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#005277"/>
+                                    <!--<Setter Property="Foreground" Value="White"/>-->
+                                </Trigger>
+
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#005277"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <!--单元格样式触发-->
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+                                            <ContentPresenter />
+                                        </TextBlock>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>   
+
+
 ### 9、在ViewModel中调用事件
 
  1、引用 System.Windows.Interactivity.dll 程序集之后，我们在 View 中添加xmlns的引用如下：
@@ -284,3 +432,66 @@ description:  工作中记录的一些WPF知识
        var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
        logoWindow.Left = desktopWorkingArea.Right - logoWindow.Width-50;
        logoWindow.Top = desktopWorkingArea.Bottom - logoWindow.Height-100;
+
+### 13、listBox样式
+    <Style TargetType="{x:Type ListBox}">
+      <Setter Property="Background" Value="{DynamicResource ContentBackground}"/>
+      <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
+      <Setter Property="Foreground" Value="{DynamicResource NormalForeground}"/>
+      <Setter Property="OverridesDefaultStyle" Value="True"/>
+      <Setter Property="Padding" Value="0"/>
+     <Setter Property="Margin" Value="0"/>
+     <Setter Property="ClipToBounds" Value="False"/>
+     <Setter Property="BorderThickness" Value="0"/>
+     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+     <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+     <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+     <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+      <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+      <Setter Property="Template">
+         <Setter.Value>
+          <ControlTemplate TargetType="{x:Type ListBox}">
+              <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+      BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                  <ScrollViewer Focusable="false" Margin="0" Padding="0" ContextMenu="{x:Null}">
+                      <ItemsPresenter Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                  </ScrollViewer>
+              </Border>
+              <!--<ControlTemplate.Triggers>
+                  <Trigger Property="IsEnabled" Value="false">
+                      <Setter Property="Opacity" TargetName="Bd" Value="0.5"/>
+                  </Trigger>
+                  <MultiTrigger>
+                      <MultiTrigger.Conditions>
+                          <Condition Property="IsGrouping" Value="true"/>
+                      </MultiTrigger.Conditions>
+                      <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+                  </MultiTrigger>
+              </ControlTemplate.Triggers>-->
+          </ControlTemplate>
+         </Setter.Value>
+       </Setter>
+    </Style>
+
+         <Style  TargetType="{x:Type ListBoxItem}" >
+        <Style.Triggers>
+         <!--<MultiTrigger>
+          <MultiTrigger.Conditions>
+              <Condition Property="IsSelected" Value="True"/>
+              <Condition Property="IsMouseOver" Value="True"/>
+          </MultiTrigger.Conditions>
+          <Setter Property="Background" Value="Red"/>
+      </MultiTrigger>
+      <MultiTrigger>
+          <MultiTrigger.Conditions>
+              <Condition Property="IsSelected" Value="True"/>
+              <Condition Property="IsMouseOver" Value="False"/>
+          </MultiTrigger.Conditions>
+          <Setter Property="Background" Value="Transparent"/>
+      </MultiTrigger>-->
+      <Trigger Property="IsMouseOver" Value="True">
+          <Setter Property="Background" Value="Transparent"/>
+      </Trigger>
+  </Style.Triggers>
+</Style>
