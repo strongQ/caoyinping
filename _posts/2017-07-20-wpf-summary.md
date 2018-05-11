@@ -493,5 +493,23 @@ description:  工作中记录的一些WPF知识
       <Trigger Property="IsMouseOver" Value="True">
           <Setter Property="Background" Value="Transparent"/>
       </Trigger>
-  </Style.Triggers>
-</Style>
+    </Style.Triggers>
+   </Style>
+
+   ### 14、全局通用命令
+   后台：
+   public class TestCommand:ContentControl
+    {
+        public static RoutedCommand OpenDialogCommand = new RoutedCommand();
+        public TestCommand()
+        {
+            CommandBindings.Add(new CommandBinding(OpenDialogCommand, OpenDialogHandler));
+        }
+
+        private void OpenDialogHandler(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("ok");
+        }
+    }
+   前台：
+    <domain:TestCommand></domain:TestCommand>
