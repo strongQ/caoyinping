@@ -513,3 +513,8 @@ description:  工作中记录的一些WPF知识
     }
    前台：
     <domain:TestCommand></domain:TestCommand>
+
+### 15、word模板引擎
+   TemplateEngine.Docx
+   
+   配合Spire读取显示
