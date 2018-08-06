@@ -43,3 +43,8 @@ tags:          [bs,angular]
      [message]="message.text"
      (update)="onUpdate(message.id, $event.text)">
      </app-simple-form>
+
+
+### 2、异步post、get方法
+    首先导入import { HttpClient ,HttpHeaders } from '@angular/common/http';
+    然后调用： data=await this.httpclient.post(domain+ AppGlobal.API.instructMs+`/task/back/approval/filter/page`,applySearch,this.httpOptions).toPromise();
