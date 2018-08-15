@@ -47,4 +47,29 @@ tags:          [bs,angular]
 
 ### 2、异步post、get方法
     首先导入import { HttpClient ,HttpHeaders } from '@angular/common/http';
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+
+        })
+      };
     然后调用： data=await this.httpclient.post(domain+ AppGlobal.API.instructMs+`/task/back/approval/filter/page`,applySearch,this.httpOptions).toPromise();
+
+### 3、与cef客户端交互
+
+    1、首先在构造函数中定义全局对象
+    window['appComponentRef']={component:this,zone:_ngZone };
+    2、然后在初始化方法中注册外部方法
+    window['angularApply'].registerCallback(    
+       this.GetData
+    )
+    GetData(type:string,sn:string,ctrl:string,status:string){
+    let applyType:ApplyType=+type;
+    window['appComponentRef'].zone.run(()=>{
+
+      // inform为component中的方法
+      window['appComponentRef'].component.inform(sn,applyType,ctrl,status);
+
+    }
+    )   
+  }
