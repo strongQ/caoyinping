@@ -88,3 +88,12 @@ tags:          [mef,prism]
 
 ##### 3.4、使用方法
     [ViewExport(RegionName = InstructRegionNames.INSTRUCT_MAIN_PREVIEW_REGION)]
+    注册reginon,方便使用
+
+##### 3.5、设置config配置和读取
+     <module assemblyFile="Plugin/Service/JP.HCZZP.WPFApp.Service.dll" moduleType="JP.HCZZP.WPFApp.Service.ServiceModule, JP.HCZZP.WPFApp.Service" moduleName="ServiceModule" startupLoaded="true"/>
+     代码中加载：
+       IModuleManager moduleManager = Container.GetExportedValue<IModuleManager>();
+          ModulesConfigurationSection modules = ConfigurationManager.GetSection("modules") as ModulesConfigurationSection;
+          foreach (ModuleConfigurationElement module in modules.Modules)
+              moduleManager.LoadModule(module.ModuleName);
