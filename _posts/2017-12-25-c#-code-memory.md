@@ -113,3 +113,14 @@ tags:       [C#]
             }
             return (_ret);
         }
+
+  ### 3、正确启动进程
+      private void ExecuteAsAdmin(string fileName,string dirPath)
+      {
+      ProcessStartInfo proc = new ProcessStartInfo();
+      proc.FileName = fileName;
+      proc.WorkingDirectory = dirPath;
+      proc.UseShellExecute = false;
+      //proc.Verb = "runas";
+      Process.Start(proc);
+      }
