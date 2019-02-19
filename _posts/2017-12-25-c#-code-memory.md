@@ -115,12 +115,20 @@ tags:       [C#]
         }
 
   ### 3、正确启动进程
-      private void ExecuteAsAdmin(string fileName,string dirPath)
-      {
-      ProcessStartInfo proc = new ProcessStartInfo();
-      proc.FileName = fileName;
-      proc.WorkingDirectory = dirPath;
-      proc.UseShellExecute = false;
-      //proc.Verb = "runas";
-      Process.Start(proc);
+
+       private void ExecuteAsAdmin(string fileName,string dirPath)
+       {
+         ProcessStartInfo proc = new ProcessStartInfo();
+         proc.FileName = fileName;
+         //必须设置工作路径
+         proc.WorkingDirectory = dirPath;
+         proc.UseShellExecute = false;
+        //proc.Verb = "runas";
+        Process.Start(proc);
       }
+
+ ### 4、根据属性动态排序
+
+    var param = "Address";    
+    var propertyInfo = typeof(Student).GetProperty(param);    
+    var orderByAddress = items.OrderBy(x => propertyInfo.GetValue(x, null));
