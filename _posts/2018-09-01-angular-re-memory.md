@@ -73,3 +73,16 @@ tags:          [bs,angular]
     }
     )   
   }
+M
+
+ ### 4、访问dom元素
+
+     @ViewChild('myInput') input: ElementRef;
+
+     constructor(private renderer: Renderer) {}
+
+     ngAfterViewInit() {
+     this.renderer.invokeElementMethod(
+     this.input.nativeElement, 'focus');
+     this.renderer.setElementStyle(this.input.nativeElement, 'backgroundColor', 'red');
+    }
