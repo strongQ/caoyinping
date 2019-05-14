@@ -516,5 +516,46 @@ description:  工作中记录的一些WPF知识
 
 ### 15、word模板引擎
    TemplateEngine.Docx
-   
+
    配合Spire读取显示
+
+
+ ### 16、主题设置
+ 1、添加资源类，方便xaml中定位资源
+
+    public class CustomResources
+    {
+
+     public static ComponentResourceKey OneGradientForeKey
+     {
+         get
+         {
+             return new ComponentResourceKey(
+                 typeof(CustomResources), "OneGradientFore");
+         }
+     }
+    }
+
+ 2、添加资源字典和后台cs文件，方便直接调用
+
+    ResourceDictionary x:Class="JP.HCZZP.WPFApp.Instruct.Modules.ResourceLibrary.Themes.Generic" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary  Source="Images.xaml"/>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="Controls/InstructListBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+   </ResourceDictionary>
+
+    public partial class Generic: ResourceDictionary
+     {
+        public Generic()
+        {
+            InitializeComponent();
+        }
+     }
+
+
+   3、xaml中应用资源
+
+    BorderBrush="{DynamicResource {x:Static res:CustomResources.OneForeKey}}"

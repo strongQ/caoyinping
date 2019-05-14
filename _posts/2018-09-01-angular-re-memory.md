@@ -86,3 +86,69 @@ M
      this.input.nativeElement, 'focus');
      this.renderer.setElementStyle(this.input.nativeElement, 'backgroundColor', 'red');
     }
+
+### 5、懒加载模块
+1、定义公共模块，导出第三方组件等供懒加载模块使用
+
+    @NgModule({
+    declarations: [AlramViewComponent,GenderPipe,AlarmreportComponent,YesNoPipe,lostPipe
+     ],
+    imports: [
+    CommonModule,
+    NgZorroAntdModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ChartsModule,
+    NgxPermissionsModule
+    ],
+    exports:[
+    NgxPermissionsModule,
+    CommonModule,
+    NgZorroAntdModule,
+    AlramViewComponent,
+    AlarmreportComponent,
+    GenderPipe,
+    YesNoPipe,
+    lostPipe,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ChartsModule
+    ],
+
+    })
+
+  2、懒加载模块必须添加module文件
+
+    @NgModule({
+    declarations: [AnaysistabsComponent],
+    imports: [
+    CommonModule,
+    NzCommonModule,
+    AnaysistabsRoutingModule
+    ]
+    })
+    export class AnaysistabsModule { }
+
+  3、改变路由模式
+
+    const routes: Routes = [
+      {
+        path:'',
+        component:ApplytabsComponent,
+        children:[
+            {path:'',redirectTo:'delay/1',pathMatch:'full'},
+            {path:'rollback/:status',loadChildren:'../rollbacktab/rollbacktab.module#RollbackTabModule'},
+            {path:'rollback/:status/:sn',loadChildren:'../rollbacktab/rollbacktab.module#RollbackTabModule'},
+            {path:'updown/:status',loadChildren:'../up-downtab/up-downtab.module#UpDownTabModule'},
+            {path:'updown/:status/:sn/:ctrl',loadChildren:'../up-downtab/up-downtab.module#UpDownTabModule'},
+            {path:'trans/:status',loadChildren:'../transtab/transtab.module#TransTabModule'},
+            {path:'trans/:status/:sn/:ctrl',loadChildren:'../transtab/transtab.module#TransTabModule'},
+            {path:'delay/:status/:sn',loadChildren:'../delaytab/delaytab.module#DelayTabModule'},
+            {path:'delay/:status',loadChildren:'../delaytab/delaytab.module#DelayTabModule'}
+        ]
+       ];
+     }
+
+     imports: [RouterModule.forChild(routes)],
