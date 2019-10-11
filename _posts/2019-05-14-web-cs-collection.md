@@ -26,3 +26,14 @@ tags:          [web]
 ### 4、ionic环境全局安装
     npm install -g ionic 
     
+### 5、vscode调试本地文件
+      "type": "chrome",
+            "request": "launch",
+            "sourceMaps": true,
+            "port": 9222,
+            "userDataDir":true,
+            "name": "Launch Chrome against localhost",
+            "file":"${workspaceFolder}/index.html",
+           // "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}" 
+    
