@@ -42,4 +42,4 @@ tags:          [web,docker]
 
 ### 2、docker中部署sqlserver
 
-    1、 docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 --name sqlserver2019 -v C:\Users\zhangqi\Desktop\work\database\sqlserver:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+    1、 docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=Zhangqi@Passw0rd' -p 1433:1433 --name sqlserver2019 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
