@@ -100,6 +100,11 @@ description: 工作中需要的oracle语句
     drop role myrole;删除角色
 
 
+6、增加表空间
+
+  ALTER TABLESPACE TABLESPACE ADD DATAFILE
+ 'D:\oracle\orcl\TABLESPACE.DBF'
+ SIZE 10240M AUTOEXTEND ON NEXT 1024M MAXSIZE UNLIMITED;
 
 ### 整理
 
