@@ -45,3 +45,17 @@ tags:          [linux]
    4、安装xfce4界面
 
     sudo apt-get install xorg slim xfce4
+
+   5、安装docker
+
+    1、添加https包
+     sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg2
+    2、GPG密钥
+     curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add -
+    3、加入国内docker源
+     add-apt-repository "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/debian $(lsb_release -cs) stable"
+    4、安装
+    sudo apt install docker-ce
+    5、验证
+    sudo systemctl status docker
+
