@@ -23,7 +23,7 @@ http://coolshell.info 哥是全部copy，感谢，觉得文章写的好就没删
 
 ####联系方式
 
-联系方式：qq(1270187870), Email(zhangqi@raoqing.win)
+联系方式：qq(1270187870) 3d011c25deed6df77cd50c705e6c31c3
 
 
 ####使用本项目作模板的博客链接
