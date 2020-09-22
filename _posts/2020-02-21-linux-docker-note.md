@@ -28,3 +28,23 @@ tags:          [linux,docker]
     mysql -uroot -p
     // 导入
     source 文件名.sql
+
+### 2、mysql Docker启动   
+
+    // 拉取镜像
+     docker pull mysql:5.7    
+    // 启动容器
+     docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=3458888 -e MYSQL_ROOT_HOST=% mysql:1.0 --character-set-server=utf8 --lower-case-table-names=1
+
+
+### 3、mysql8.0修改root密码
+
+
+      mysql> ALTER USER'root'@'%'IDENTIFIED WITH    mysql_native_password BY 'password';
+      mysql> FLUSHPRIVILEGES;
+
+### 4、mysql8.0设置大小写不敏感
+
+     sudo dpkg-reconfigure mysql-server-8.0
+
+   
