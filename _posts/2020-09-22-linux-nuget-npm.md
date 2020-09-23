@@ -57,4 +57,17 @@ tags:          [linux,nuget]
 ### 4、部署npm私服
 
      docker run -it -d --name verdaccio -p 4873:4873 verdaccio/verdaccio
+
+
+### 5、向nuget私服上传包
+
    
+      Get-ChildItem -Path ./_packages | ForEach-Object -Process{
+       dotnet nuget push $_.fullname --skip-duplicate  -k 4F557FE6-E922-444E-8F0B-50851E6A9A07 -s http://beibei.press:5000/v3/index.json
+       }
+
+### 6、Xamarin打包Apk
+
+      1. docker pull nathansamson/xamarin-android-docker
+      2. docker run -it -v $(pwd):/xamarin_project chiticariu/xamarin-android /bin/bash
+      3. msbuild OwnApp.Android.csproj /p:AndroidSdkDirectory=/android/sdk /restore /t:SignAndroidPackage /p:Configuration=Release
