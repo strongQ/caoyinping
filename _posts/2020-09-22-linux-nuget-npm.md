@@ -71,3 +71,9 @@ tags:          [linux,nuget]
       1. docker pull nathansamson/xamarin-android-docker
       2. docker run -it -v $(pwd):/xamarin_project chiticariu/xamarin-android /bin/bash
       3. msbuild OwnApp.Android.csproj /p:AndroidSdkDirectory=/android/sdk /restore /t:SignAndroidPackage /p:Configuration=Release
+
+
+### 7、部署nginx
+
+      1. docker run -d -p 2222:80 --name nginx  -v "$(pwd)/www:/usr/share/nginx/html" -v "$(pwd)/conf/nginx.conf:/etc/nginx/nginx.conf" -v "$(pwd)/logs:/var/log/nginx" nginx:latest
+      2. docker cp 13afb35cbc98:/etc/nginx/nginx.conf ./nginx/conf
