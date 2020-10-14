@@ -559,3 +559,37 @@ description:  工作中记录的一些WPF知识
    3、xaml中应用资源
 
     BorderBrush="{DynamicResource {x:Static res:CustomResources.OneForeKey}}"
+
+
+
+
+ ### 16、Wpf中Cef网页加载
+
+     // 等待加载完成
+     public Task LoadPageAsync(string address=null)
+        {
+            var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+
+            EventHandler<LoadingStateChangedEventArgs> handler = null;
+            handler = (sender, args) =>
+            {       
+                    //Wait for while page to finish loading not just the first frame
+                    if (!args.IsLoading)
+                    {              
+                    //Important that the continuation runs async using TaskCreationOptions.RunContinuationsAsynchronously
+                    var result=  tcs.TrySetResult(true);       
+                    }                         
+            };
+            this.WebBrowser.LoadingStateChanged -= handler;
+            this.WebBrowser.LoadingStateChanged += handler;
+            if (!string.IsNullOrEmpty(address))
+            {
+                
+                this.WebBrowser.Load(address);
+            }
+            else
+            {
+                this.GetBrowser()?.Reload();
+            }
+            return tcs.Task;
+        }
