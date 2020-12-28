@@ -392,7 +392,8 @@ description:  工作中记录的一些WPF知识
              box.Owner = owner;
              //蒙板
              Grid layer = new Grid() { Background = new SolidColorBrush(Color.FromArgb(128, 0, 0, 0)) };
-             //父级窗体原来的内容
+             //父级窗体原来的内容 
+             //new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD3CFC7"));
              UIElement original = owner.Content as UIElement;
              owner.Content = null;
              //容器Grid
