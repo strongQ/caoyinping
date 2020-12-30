@@ -116,3 +116,22 @@ tags:          [sql]
     group by maker
 
     having count(distinct type)=1 and count(distinct model)>1);
+
+
+### 9、sql性能优化      
+    1.尽可能在数据库设计时，不要使用NULL，尽可能使用NOT NULL；
+    2.尽可能使用VARCHAR/NVARCHAR 代替CHAR/NCHAR；
+    3.尽可能使用数字型字段，若只含数值信息的字段尽量不要设计为字符型；
+    4.为经常需要排序、分组、查询和联合操作的字段建立索引
+添加索引：    
+- 添加PRIMARY KEY（主键索引）   
+    ALTER TABLE `table_name` ADD PRIMARY `column` )     
+- 添加UNIQUE(唯一索引)     
+    ALTER TABLE `table_name` ADD UNIQUE ( `column` ) 
+- 添加FULLTEXT(全文索引)     
+    ALTER TABLE `table_name` ADD FULLTEXT ( `column`)
+- 添加多列索引     
+    ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` )  
+- 采用OR、<>或!=操作符时，查询语句不会使用索引；
+- 采用NOT操作符时，查询语句不会使用索引；
+- 采用HAVING操作符时，查询语句不会使用索引；
