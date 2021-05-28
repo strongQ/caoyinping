@@ -128,7 +128,7 @@ tags:          [sql]
     ALTER TABLE `table_name` ADD PRIMARY `column` )     
 - 添加UNIQUE(唯一索引)     
     ALTER TABLE `table_name` ADD UNIQUE ( `column` ) 
-- 添加聚集索引
+- 添加CLUSTERED聚集索引(表中只会有一个）              
     ALTER TABLE `table_name` ADD CLUSTERED(`column`)
 - 添加FULLTEXT(全文索引)     
     ALTER TABLE `table_name` ADD FULLTEXT ( `column`)
