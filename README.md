@@ -1,11 +1,11 @@
-我的个人博客
+我的个人博客(已转移到zhangqi.win)
 ================
 
-####博客地址
+#### 博客地址
 
-http://coolshell.info 哥是全部copy，感谢，觉得文章写的好就没删，方便看看！
+https://zhangqi.win ,请转移到io项目，本项目不在维护！
 
-####使用本项目作为博客模板，仅需如下几步：
+#### 使用本项目作为博客模板，仅需如下几步：
 
 1. 首先Fork或Download一份本项目代码。
 2. 修改_config.yaml及about.md文件，以变更个人信息。
@@ -17,16 +17,16 @@ http://coolshell.info 哥是全部copy，感谢，觉得文章写的好就没删
 
  *^_^*如果愿意，Star本项目一个吧~
 
-####本项目使用了
+#### 本项目使用了
 1. CNZZ的网站统计服务，官网：http://cnzz.com,我没用这个。
 2. 多说的评论功能，官网:http://duoshuo.com/
 
-####联系方式
+#### 联系方式
 
-联系方式：qq(1270187870) 3d011c25deed6df77cd50c705e6c31c3
+联系方式：hihifunbbqq@gmail.com
 
 
-####使用本项目作模板的博客链接
+#### 使用本项目作模板的博客链接
 
 * http://www.94geek.com  
 * http://www.haidaoxiaofei.me  
